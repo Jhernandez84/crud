@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Gestión de Personal - Tareas</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <img src="./assets/images/agenda.jpg" alt="logo CalendApp">
+            <a href="#">Tablero</a>
+            <a href="#">Perfiles</a>
+            <a href="#">Mantenedores</a>
+            <a class="sesion" href="#">Sesión</a>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="menuIzquierda">
+            <section class="titulo">
+                <h2>Ingreso de datos</h2>
+            </section>
+            <section class="form">
+            <form id="form">
+                <div class="inputForm">
+                <label for="rut">Rut</label>
+                <input type="number" id="id" name="id" placeholder="rut">
+                </div>
+                <div class="inputForm">
+                <label for="rut">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="nombre">
+                </div>
+                <div class="inputForm">
+                <label for="lastName">Apellido</label>
+                <input type="text" id="lastName" name="lastName" placeholder="apellido">
+                </div>
+                <!-- <div class="inputForm">
+                    <label for="phone">Telefono</label>
+                    <input type="number" id="phone" name="phone" placeholder="XXXXXXXX">
+                </div> -->
+                <div class="inputForm">
+                    <label for="assignDate">Fecha Inicio</label>
+                    <input type="date" id="assignDate" name="assignDate" placeholder="date()">
+                </div>
+                <div class="inputForm">
+                    <label for="projectStatus">Estado</label>
+                    <select name="" id="projectStatus">
+                        <option value="1" selected disabled>--Seleccione--</option>
+                        <option value="Asignado">Asignado</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Completado">Completado</option>
+                    </select>
+                </div>
+                <div class="inputForm">
+                    <label for="desc">Descripción</label>
+                    <textarea class="desc" type="text" id="desc" name="desc" placeholder=" descripción"></textarea>
+                </div>
+                <button type="submit" class="btnNuevoRegistro" id="nuevoRegistro">Guardar registro</button>
+            </form>
+            </section>
+            <section class="dashboard">
+                <section class="titulo">
+                    <h2>Estado de los proyectos</h2>
+                </section>
+            </section>
+        </div>
+
+        <div class="menuDerecha">
+            <section class="encabezado">
+                <h2 class="titulo">Avatar</h2>
+                <h2 class="titulo">Rut</h2>
+                <h2 class="titulo">Nombre</h2>
+                <h2 class="titulo">Apellidos</h2>
+                <h2 class="titulo">Estado</h2>
+                <h2 class="titulo">Fecha Asign.</h2>
+                <h2 class="titulo">Opciones</h2>
+            </section>
+            <!-- debo replicar esto por cada N tareas creadas -->
+            <!-- debo replicar esto por cada N tareas creadas -->
+            <section id="cardSection">
+
+            </section>
+            <!-- debo replicar esto por cada N tareas creadas -->
+            <!-- debo replicar esto por cada N tareas creadas -->
+        </div>
+    </section>
+    <script src="./assets/main.js"></script>
+</body>
+</html>
