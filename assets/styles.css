@@ -154,6 +154,7 @@ img{
     width: 90%;
     background-color:  aqua;
     color:black;
+    margin-top: 10px;
     border: solid 0.5px;
     border-color: aqua;
     border-radius: 50px;
@@ -183,6 +184,13 @@ img{
     width: 150%;
     align-items: center;
     border-radius: 25px;
+}
+
+.dashboard h3{
+    color:  white;
+    font-size: medium;
+    margin-left: 20px;
+
 }
 
 

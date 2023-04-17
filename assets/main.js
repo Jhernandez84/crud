@@ -34,10 +34,12 @@ function creaRegistro(event){
     insertRecord(registro,regId)
     saveDataLS()
     // readDataLS()
+    updProjectStatus()
     limpiarFormulario()
     }else{
     console.log(editandoIndice)
     saveRecordupdate(editandoIndice)
+    updProjectStatus()
     }
 }
 
@@ -72,11 +74,11 @@ function insertRecord(registro, regId){
     <div class="cards-container" id="Child${registro.regId}">
     <div class="cards" id="${registro.regId}">
     <img src="./assets/images/avatar1.png" alt="">
-    <h2>${registro.id}</h2>
-    <h2>${registro.name}</h2>
-    <h2>${registro.lastname}</h2>
-    <h2>${registro.projectStatus}</h2>
-    <h2>${registro.assignDate}</h2>
+    <h2 id="crdid${registro.regId}">${registro.id}</h2>
+    <h2 id="crdName${registro.regId}">${registro.name}</h2>
+    <h2 id="crdLastName${registro.regId}">${registro.lastname}</h2>
+    <h2 id="crdProStatus${registro.regId}">${registro.projectStatus}</h2>
+    <h2 id="crdAssDate${registro.regId}">${registro.assignDate}</h2>
         <a id="vrd${registro.regId})" onclick="viewRecordDetails(${registro.regId})" class="opt-btn detalles" href="#">Detalles</a>
         <a id="${registro.regId}" onclick="editRecord(${registro.regId})" class="opt-btn modificar" href="#">Modificar</a>
         <a id="${registro.regId}" onclick="deleteRecord(${registro.regId})" class="opt-btn eliminar" href="#">Eliminar</a>
@@ -148,7 +150,23 @@ function saveRecordupdate(value){
     console.log(registros)
     const actualizaRegistro = document.getElementById('nuevoRegistro')
     actualizaRegistro.innerHTML = 'Guardar Registro'
+    editandoRegistro = false
+    updCardDetails(registro,value)
+    const modificando =document.getElementById(value)
+    modificando.style.backgroundColor = "#252525"
+    updProjectStatus()
     limpiarFormulario()
+}
+
+function updCardDetails(registro,value){
+    console.log(registro,value)
+    document.getElementById("crdid"+value).innerText = registro.id
+    document.getElementById("crdid"+value).innerText= registro.id
+    document.getElementById("crdName"+value).innerText = registro.name
+    document.getElementById("crdLastName"+value).innerText = registro.lastname
+    document.getElementById("crdProStatus"+value).innerText = registro.projectStatus
+    document.getElementById("crdAssDate"+value).innerText = registro.assignDate
+    // document.getElementById('crddesc').innerText = registro.desc
 }
 
 function deleteRecord(value){
@@ -159,6 +177,16 @@ function deleteRecord(value){
     const listaRegistros = document.getElementById('cardSection') 
     const registro = document.getElementById("Child"+value)
     listaRegistros.removeChild(registro)
-    console.log(value + ' eliminado')
+    updProjectStatus()
     limpiarFormulario()
+}
+
+function updProjectStatus(){
+    const pAssi = registros.filter(registros => registros.projectStatus === "Asignado")
+    const pPdte = registros.filter(registros => registros.projectStatus === "Pendiente")
+    const pComp = registros.filter(registros => registros.projectStatus === "Completado")
+    document.getElementById("nProTot").innerText = `${registros.length} Proyecto(s) en desarrollo.`
+    document.getElementById("nProAss").innerText = `${pAssi.length} Proyecto(s) asignados.`
+    document.getElementById("nProCom").innerText = `${pComp.length} Proyecto(s) completados.`
+    document.getElementById("nProPdt").innerText = `${pPdte.length} Proyecto(s) pendientes.`
 }
