@@ -108,7 +108,7 @@ img{
 
 .card-detail {
     display:grid;
-    grid-template-columns: repeat(3, 12% 60% 15%);
+    grid-template-columns: repeat(3, 12% 1% 70%);
     color:white;
     border-bottom: solid 0.5px;
     border-color: aqua;
@@ -142,6 +142,10 @@ img{
     text-decoration: none;
     border-color: white;
     color: white;
+}
+
+.card-details .opt-btn{
+    width: 100%;
 }
 
 .btnNuevoRegistro{

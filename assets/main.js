@@ -2,7 +2,11 @@
 
 const registros =[]
 const hist_registros=[]
-let regId = -1
+let regId = 0
+let editandoRegistro = false
+let editandoIndice = 0
+console.log(regId)
+//readDataLS()
 
 // define 3 tareas de ejemplo para desplegar en la aplicación
 // const registro = {
@@ -21,13 +25,20 @@ const addButton = document.getElementById('nuevoRegistro')
 addButton.addEventListener('click',creaRegistro)
 
 function creaRegistro(event){
-    regId++ // Aumenta en 1 el número del ID de Registro
+    console.log(editandoRegistro)
     event.preventDefault()
+    if (editandoRegistro === false){
+    regId = registros.length // Aumenta en 1 el número del ID de Registro
     const registro = readform()
+    registros.push(registro);
     insertRecord(registro,regId)
     saveDataLS()
     // readDataLS()
     limpiarFormulario()
+    }else{
+    console.log(editandoIndice)
+    saveRecordupdate(editandoIndice)
+    }
 }
 
 function limpiarFormulario(){
@@ -51,7 +62,6 @@ function readform(){
         desc: descInput.value,
         assignDate: assignDateInput.value,
     }
-    registros.push(registro);
     return registro    
 }
 
@@ -59,15 +69,15 @@ function insertRecord(registro, regId){
     // const nuevaTarjeta = document.createElement()
     const listaRegistros = document.getElementById('cardSection')
     listaRegistros.innerHTML +=`
-    <div class="cards-container" id="${registro.regId}">
-    <div class="cards"">
+    <div class="cards-container" id="Child${registro.regId}">
+    <div class="cards" id="${registro.regId}">
     <img src="./assets/images/avatar1.png" alt="">
     <h2>${registro.id}</h2>
     <h2>${registro.name}</h2>
     <h2>${registro.lastname}</h2>
     <h2>${registro.projectStatus}</h2>
     <h2>${registro.assignDate}</h2>
-        <a id="${registro.regId})" onclick="viewRecordDetails(${registro.regId})" class="opt-btn detalles" href="#">Detalles</a>
+        <a id="vrd${registro.regId})" onclick="viewRecordDetails(${registro.regId})" class="opt-btn detalles" href="#">Detalles</a>
         <a id="${registro.regId}" onclick="editRecord(${registro.regId})" class="opt-btn modificar" href="#">Modificar</a>
         <a id="${registro.regId}" onclick="deleteRecord(${registro.regId})" class="opt-btn eliminar" href="#">Eliminar</a>
     </div>
@@ -88,24 +98,22 @@ function readDataLS(){
 }
 
 function viewRecordDetails(value){
-    const registro = document.getElementById(value)    
+    const registro = document.getElementById("Child"+value) 
     const detalleRegistro = document.createElement('div')
     //acá estoy agregando el detalle de la actividad
-    console.log(registro)
     detalleRegistro.innerHTML =`
     <h2>Tarea asignada:<h2>
-    <h2>${value}<h2> 
+    <h2>${registros[value].desc}<h2> 
     <a onclick="hideRecordDetails(${value})" class="opt-btn cerrar" href="#">Ocultar</a>
     `
     detalleRegistro.className='card-detail'
     detalleRegistro.id= 'Desc'+value;
     registro.appendChild(detalleRegistro);
     registro.style.height = "100px";
-    // setTimeout(hideRecordDetails,500);
 }
 
 function hideRecordDetails(value){
-    const registro = document.getElementById(value)
+    const registro = document.getElementById("Child"+value)
     const escondeRegistro = document.getElementById('Desc'+value)
     registro.removeChild(escondeRegistro)
     console.log(escondeRegistro)
@@ -113,16 +121,34 @@ function hideRecordDetails(value){
 }
 
 function editRecord(value){
-    console.log(value)
+    editandoRegistro = true
+    editandoIndice = value
+    const actualizaRegistro = document.getElementById('nuevoRegistro')
+    actualizaRegistro.innerHTML = 'Actualizar Registro'
     // vuelve a cargar la información en el formulario 
     document.getElementById('id').value = registros[value].id
     document.getElementById('name').value = registros[value].name
     document.getElementById('lastName').value = registros[value].lastname
-    document.getElementById('phone').value = registros[value].phone
+    document.getElementById('projectStatus').value = registros[value].projectStatus
     document.getElementById('assignDate').value = registros[value].assignDate
     document.getElementById('desc').value = registros[value].desc
     const modificando =document.getElementById(value)
     modificando.style.backgroundColor = "gray"
+    editandoIndice = value
+    console.log(editandoIndice)
+}
+
+function saveRecordupdate(value){
+    const registro = readform()
+    console.log(registro)
+    console.log(value)
+    const registroActualizado = registros.splice(value,1,registro)
+    saveDataLS()   
+    console.log(registroActualizado)
+    console.log(registros)
+    const actualizaRegistro = document.getElementById('nuevoRegistro')
+    actualizaRegistro.innerHTML = 'Guardar Registro'
+    limpiarFormulario()
 }
 
 function deleteRecord(value){
@@ -131,7 +157,8 @@ function deleteRecord(value){
     console.log(registroEliminado)
     console.log(registros)
     const listaRegistros = document.getElementById('cardSection') 
-    const registro = document.getElementById(value)
+    const registro = document.getElementById("Child"+value)
     listaRegistros.removeChild(registro)
     console.log(value + ' eliminado')
+    limpiarFormulario()
 }

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <title>Gestión de Personal - Tareas</title>
+    <title>Gestión de Proyectos</title>
 </head>
 <body>
     <header class="header">
@@ -50,7 +50,7 @@
                 <div class="inputForm">
                     <label for="projectStatus">Estado</label>
                     <select name="" id="projectStatus">
-                        <option value="1" selected disabled>--Seleccione--</option>
+                        <option value="N/A" selected disabled>--Seleccione--</option>
                         <option value="Asignado">Asignado</option>
                         <option value="Pendiente">Pendiente</option>
                         <option value="Completado">Completado</option>
@@ -67,9 +67,14 @@
                 <section class="titulo">
                     <h2>Estado de los proyectos</h2>
                 </section>
+                <section>
+                    <h3>Totales</h3>
+                    <h3>Asginados</h3>
+                    <h3>Completados</h3>
+                    <h3>Pendientes</h3>
+                </section>
             </section>
         </div>
-
         <div class="menuDerecha">
             <section class="encabezado">
                 <h2 class="titulo">Avatar</h2>
@@ -85,8 +90,6 @@
             <section id="cardSection">
 
             </section>
-            <!-- debo replicar esto por cada N tareas creadas -->
-            <!-- debo replicar esto por cada N tareas creadas -->
         </div>
     </section>
     <script src="./assets/main.js"></script>
