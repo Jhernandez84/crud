@@ -5,7 +5,6 @@ const hist_registros=[]
 let regId = 0
 let editandoRegistro = false
 let editandoIndice = 0
-console.log(regId)
 //readDataLS()
 
 // define 3 tareas de ejemplo para desplegar en la aplicación
@@ -84,7 +83,7 @@ function insertRecord(registro, regId){
         <a id="${registro.regId}" onclick="deleteRecord(${registro.regId})" class="opt-btn eliminar" href="#">Eliminar</a>
     </div>
     </div>`
-    console.log(registro.regId)
+    // console.log(registro.regId)
 }
 
 function saveDataLS(){
