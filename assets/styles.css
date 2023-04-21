@@ -6,18 +6,34 @@ body{
     background-color: #252525;
 }
 
-nav{
-    background-color: black;
+.container .nav{
+    background-color: rgba(16, 15, 15, 0.702);
     height: 60px;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    margin: 10px;
     border-radius: 20px 20px 0px 0px;
 }
 
-.header a{
+.container .footer{
+    background-color: rgba(16, 15, 15, 0.702);
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    gap: 20px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.container .footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.container .header a{
     color: rgb(226, 226, 226);
     border-color: orange;
     border: solid 1px;
@@ -37,13 +53,17 @@ img{
 
 .container{
     display: grid;
-    grid-template-columns: repeat(2,30% 70%);
+    grid-template-columns: 30% 70%;
+    grid-template-rows: repeat(3, auto);
+    gap: 5px;
     border-color: blueviolet;
     border:solid 1px;
-    padding: 10px;
-    /* margin: 10px 10px 10px 10px; */
-    border-radius: 0px 0px 20px 20px ;
-    height: 100vh;
+    /* padding: 10px; */
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.container .header , .footer{
+    grid-column: 1 / span 3;
 }
 
 .menuIzquierda{
@@ -53,9 +73,9 @@ img{
     border-color: rgb(115, 114, 114);
 }
 
-.menuDerecha{
+.container .menuDerecha{
     display: grid;
-    grid-template-rows: repeat(3,5% 5% 80%);
+    grid-template-rows: repeat(3,5% 5% auto);
 }
 
 .menuDerecha .encabezado{
@@ -90,6 +110,11 @@ img{
     font-size: 11px;
     height: 50px;
     padding: 0px 30px;
+}
+
+.cardSection{
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .cards {
@@ -191,5 +216,291 @@ img{
     margin-left: 20px;
 }
 
+@media screen and (max-width: 550px) {
+    .container .menuIzquierda{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha .cardSection{
+        display: grid;
+        grid-template-columns: auto;
+        gap: 1%;
+    }
+    .container .menuDerecha .cardSection .cards-container{
+        align-items: center;
+        display: grid;
+        grid-template-rows: 100%;
+        gap: 0%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-column: auto;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-bottom: 5%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+    .dashboard, .header{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container .menuIzquierda{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha .cardSection{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1%;
+    }
+    .container .menuDerecha .cardSection .cards-container{
+        align-items: center;
+        display: grid;
+        grid-template-rows: 100%;
+        gap: 0%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-bottom: 5%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+    .dashboard, .header{
+        display: none;
+    }
+}
+
+@media screen and  (max-width: 992px) {
+    .container .menuIzquierda{
+        display: grid;
+        grid-column: 1 / span 3;
+
+    }
+    .container .menuDerecha{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha .cardSection .cards-container{
+        align-items: center;
+        display: grid;
+        grid-template-rows: 100%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+    .dashboard{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .container .menuIzquierda{
+        display: grid;
+        grid-column: 1 / span 3;
+
+    }
+    .container .menuDerecha{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha .cardSection .cards-container{
+        align-items: center;
+        display: grid;
+        grid-template-rows: 100%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+    .dashboard{
+        display: none;
+    }
+}
+
+@media screen and  (max-width: 1300px) {
+    .cardSection{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 1%;
+        height: 100vh;
+    }
+    .cards-container{
+        align-items: center;
+        display: grid;
+        grid-template-rows: 100%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+}
 
 

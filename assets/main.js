@@ -59,6 +59,9 @@ demoButton.addEventListener('click',demo)
 const addButton = document.getElementById('nuevoRegistro')
 addButton.addEventListener('click',creaRegistro)
 
+const clearLsButton = document.getElementById('clearLS')
+clearLsButton.addEventListener('click',LimpiarLS)
+
 function creaRegistro(event){
     event.preventDefault()
     if (editandoRegistro == false){
@@ -110,15 +113,21 @@ function insertRecord(registro){
     listaRegistros.innerHTML +=`
     <div class="cards-container" id="Child${registro.regId}">
     <div class="cards" id="${registro.regId}">
+    <div class="cards-img">
     <img src="./assets/images/avatar1.png" alt="">
+    </div>
+    <div class="cards-txt">
     <h2 id="crdid${registro.regId}">${registro.id}</h2>
     <h2 id="crdName${registro.regId}">${registro.name}</h2>
     <h2 id="crdLastName${registro.regId}">${registro.lastname}</h2>
     <h2 id="crdProStatus${registro.regId}">${registro.projectStatus}</h2>
     <h2 id="crdAssDate${registro.regId}">${registro.assignDate}</h2>
+    </div>
+    <div class="cards-btn">
         <a id="vrd${registro.regId})" onclick="viewRecordDetails(${registro.regId})" class="opt-btn detalles" href="#">Detalles</a>
         <a id="${registro.regId}" onclick="editRecord(${registro.regId})" class="opt-btn modificar" href="#">Modificar</a>
         <a id="${registro.regId}" onclick="deleteRecord(${registro.regId})" class="opt-btn eliminar" href="#">Eliminar</a>
+    </div>    
     </div>
     </div>`
 }
@@ -227,9 +236,14 @@ function updProjectStatus(){
     const pAssi = registros.filter(registros => registros.projectStatus === "Asignado")
     const pPdte = registros.filter(registros => registros.projectStatus === "Pendiente")
     const pComp = registros.filter(registros => registros.projectStatus === "Completado")
-    document.getElementById("nProTot").innerText = `${registros.length} Proyecto(s) en desarrollo.`
+    document.getElementById("nProTot").innerText = `${registros.length} Proyecto(s) en total.`
     document.getElementById("nProAss").innerText = `${pAssi.length} Proyecto(s) asignados.`
     document.getElementById("nProCom").innerText = `${pComp.length} Proyecto(s) completados.`
     document.getElementById("nProPdt").innerText = `${pPdte.length} Proyecto(s) pendientes.`
     }
+}
+
+function LimpiarLS(){
+    localStorage.clear();
+
 }

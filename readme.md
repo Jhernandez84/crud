@@ -16,7 +16,7 @@
 
 ### En la sección "Ingreso de datos" podrás registrar tus propios proyectos y visualizarlos en la aplicación, carga la página cuantas veces quieras y podrás ver la información almacenada en LS.
 
-### ¿Te aburriste o no quieres ocupar espacio innecesario? Puedes hacer clic en *** y se limpiarán los datos.
+### ¿Te aburriste o no quieres ocupar espacio innecesario? Puedes hacer clic en LimpiarLS y se limpiarán los datos.
 
 <img src="./assets/images/Ingreso_de_datos.png" alt="Ingreso de datos" width=500>
 
