@@ -1,6 +1,6 @@
 # Gestión de Proyectos - CRUD
 
-### En esta App podrás asignar responsables, fechas y ver el estado y las descripciones de los distintos proyectos que tienes en tu portafolio.
+### En esta App podrás asignar responsables, fechas y ver el estado y las descripciones de los distintos proyectos que tienes en tu portafolio, acá encontrarás una versión funcional de la misma: https://jhernandez84.github.io/crud/
 
 ### No podía faltar la modificación y eliminación de registros. Anímate a hacer un par de clics y te sorprenderás.
 
