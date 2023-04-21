@@ -20,10 +20,10 @@ body{
     background-color: rgba(16, 15, 15, 0.702);
     height: 60px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    justify-items: center;
+    flex-direction: row; 
+    align-items: center; 
+    /* text-align: center; */
+    /* justify-items: center; */
     gap: 20px;
     border-radius: 0px 0px 20px 20px;
 }
@@ -56,26 +56,38 @@ img{
     grid-template-columns: 30% 70%;
     grid-template-rows: repeat(3, auto);
     gap: 5px;
-    border-color: blueviolet;
+    border-color: rgb(45, 38, 52);
     border:solid 1px;
-    /* padding: 10px; */
-    border-radius: 20px 20px 20px 20px ;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .container .header , .footer{
     grid-column: 1 / span 3;
 }
 
-.menuIzquierda{
+.container .menuIzquierda{
     display: grid;
-    grid-template-rows: repeat(3,10% 50% 40%);
+    grid-row: 5% 50% 45%;
     border-right: solid 1px;
     border-color: rgb(115, 114, 114);
+}
+
+.container .menuIzquierda .form{
+    color:aqua;
+    text-align: center;
+    /* border-bottom: solid 1px; */
+    /* margin-right: 15px; */
 }
 
 .container .menuDerecha{
     display: grid;
     grid-template-rows: repeat(3,5% 5% auto);
+}
+
+.container .menuDerecha .cardSection{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 80vh;
 }
 
 .menuDerecha .encabezado{
@@ -94,16 +106,10 @@ img{
     text-align: center;
 }
 
-.container .menuIzquierda .form{
-    color:aqua;
-    text-align: center;
-    border-bottom: solid 1px;
-    margin-right: 15px;
-}
-
 .cardTitulo{
     display:grid;
-    grid-template-columns: repeat(8,5% 10% 10% 10% 10% 10% 30%);
+    grid-template-columns: 50px 90px 90px 90px 80px 120px 50%;
+    
     gap: 1%;
     align-items: center;
     text-align: center;
@@ -112,14 +118,9 @@ img{
     padding: 0px 30px;
 }
 
-.cardSection{
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.cards {
+.container .menuDerecha .cardSection .cards-container .cards {
     display:grid;
-    grid-template-columns: repeat(8,5% 10% 10% 10% 10% 10% 10% 10%);
+    grid-template-columns: 5% 50% 50%;
     color:white;
     gap: 1%;
     border-top: solid 0.5px;
@@ -130,9 +131,27 @@ img{
     height: 40px;
 }
 
-.card-detail {
-    display:grid;
-    grid-template-columns: repeat(3, 12% 1% 70%);
+.container .menuDerecha .cardSection .cards-container .cards .cards-txt{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+}
+
+.container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+.container .menuDerecha .cardSection .cards-container .cards .cards-txt, .cards-btn h2{
+    text-align: center;
+}
+
+.container .menuDerecha .cardSection .cards-container .card-detail {
+    /* display:grid;
+    grid-template-columns: repeat(3, 150px 200px 200px); */
+    display: flex;
+    flex-direction: row;
     color:white;
     border-bottom: solid 0.5px;
     border-color: aqua;
@@ -142,6 +161,7 @@ img{
     height: 40px;
     padding-left: 2%;
     text-align: left;
+    gap: 50px;
 }
 
 .cards a{
@@ -216,6 +236,244 @@ img{
     margin-left: 20px;
 }
 
+@media screen and (max-width: 1300px) {
+    .container .menuDerecha .cardSection{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 1%;
+        height: 100vh
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img img{
+        width: 75px;
+        height: 75px;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .detalles{
+        display: none;
+    }
+
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .container .menuIzquierda{
+        display: grid;
+        grid-column: 1 / span 3;
+
+    }
+    .container .menuDerecha{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha .cardSection .cards-container{
+        align-items: center;
+        display: grid;
+        grid-template-rows: 100%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+    .dashboard{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container .menuIzquierda{
+        display: grid;
+        grid-column: 1 / span 3;
+
+    }
+    .container .menuDerecha{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha .cardSection .cards-container{
+        display: grid;
+        grid-template-rows: auto;
+
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        /* grid-template-rows: repeat(3,auto); */
+        justify-content: center;
+        align-self: center;
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+    .dashboard{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .container .menuIzquierda{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha{
+        display: grid;
+        grid-column: 1 / span 3;
+    }
+    .container .menuDerecha .cardSection{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1%;
+    }
+    .container .menuDerecha .cardSection .cards-container{
+        align-items: center;
+        display: grid;
+        grid-template-rows: 100%;
+        gap: 0%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        /* justify-content: center; */
+        /* align-self: center; */
+        min-height: 300px;
+        min-width: 200px;
+        border: solid 0.5px;
+        border-color: aqua;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
+        display: flex;       
+        flex-direction: column;
+        justify-self: center;
+        padding-top: 5%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-bottom: 5%;
+    }
+    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
+        gap: 15px;
+    }
+    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
+    .cardTitulo{
+        display: none;
+    }
+    .dashboard, .header{
+        display: none;
+    }
+}
+
 @media screen and (max-width: 550px) {
     .container .menuIzquierda{
         display: grid;
@@ -274,233 +532,3 @@ img{
         display: none;
     }
 }
-
-@media screen and (max-width: 800px) {
-    .container .menuIzquierda{
-        display: grid;
-        grid-column: 1 / span 3;
-    }
-    .container .menuDerecha{
-        display: grid;
-        grid-column: 1 / span 3;
-    }
-    .container .menuDerecha .cardSection{
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 1%;
-    }
-    .container .menuDerecha .cardSection .cards-container{
-        align-items: center;
-        display: grid;
-        grid-template-rows: 100%;
-        gap: 0%;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards{
-        grid-template-columns: auto;
-        grid-template-rows: repeat(3,auto);
-        justify-content: center;
-        align-self: center;
-        min-height: 300px;
-        min-width: 200px;
-        border: solid 0.5px;
-        border-color: aqua;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
-        display: flex;       
-        flex-direction: column;
-        justify-self: center;
-        padding-top: 5%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
-        display: flex;
-        flex-direction: column;
-        margin: 1%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        padding-bottom: 5%;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
-        gap: 15px;
-    }
-    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
-    .cardTitulo{
-        display: none;
-    }
-    .dashboard, .header{
-        display: none;
-    }
-}
-
-@media screen and  (max-width: 992px) {
-    .container .menuIzquierda{
-        display: grid;
-        grid-column: 1 / span 3;
-
-    }
-    .container .menuDerecha{
-        display: grid;
-        grid-column: 1 / span 3;
-    }
-    .container .menuDerecha .cardSection .cards-container{
-        align-items: center;
-        display: grid;
-        grid-template-rows: 100%;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards{
-        grid-template-columns: auto;
-        grid-template-rows: repeat(3,auto);
-        justify-content: center;
-        align-self: center;
-        min-height: 300px;
-        min-width: 200px;
-        border: solid 0.5px;
-        border-color: aqua;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
-        display: flex;       
-        flex-direction: column;
-        justify-self: center;
-        padding-top: 5%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
-        display: flex;
-        flex-direction: column;
-        margin: 1%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
-        gap: 15px;
-    }
-
-    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
-    .cardTitulo{
-        display: none;
-    }
-    .dashboard{
-        display: none;
-    }
-
-}
-
-@media screen and (max-width: 1200px) {
-    .container .menuIzquierda{
-        display: grid;
-        grid-column: 1 / span 3;
-
-    }
-    .container .menuDerecha{
-        display: grid;
-        grid-column: 1 / span 3;
-    }
-    .container .menuDerecha .cardSection .cards-container{
-        align-items: center;
-        display: grid;
-        grid-template-rows: 100%;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards{
-        grid-template-columns: auto;
-        grid-template-rows: repeat(3,auto);
-        justify-content: center;
-        align-self: center;
-        min-height: 300px;
-        min-width: 200px;
-        border: solid 0.5px;
-        border-color: aqua;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
-        display: flex;       
-        flex-direction: column;
-        justify-self: center;
-        padding-top: 5%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
-        display: flex;
-        flex-direction: column;
-        margin: 1%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
-        gap: 15px;
-    }
-
-    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
-    .cardTitulo{
-        display: none;
-    }
-    .dashboard{
-        display: none;
-    }
-}
-
-@media screen and  (max-width: 1300px) {
-    .cardSection{
-        display: grid;
-        grid-template-columns: auto auto auto;
-        gap: 1%;
-        height: 100vh;
-    }
-    .cards-container{
-        align-items: center;
-        display: grid;
-        grid-template-rows: 100%;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards{
-        grid-template-columns: auto;
-        grid-template-rows: repeat(3,auto);
-        justify-content: center;
-        align-self: center;
-        min-height: 300px;
-        min-width: 200px;
-        border: solid 0.5px;
-        border-color: aqua;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-img{
-        display: flex;       
-        flex-direction: column;
-        justify-self: center;
-        padding-top: 5%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
-        display: flex;
-        flex-direction: column;
-        margin: 1%;
-    }
-
-    .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-    .container .menuDerecha .cardSection .cards-container .cards .opt-btn{
-        gap: 15px;
-    }
-
-    /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
-    .cardTitulo{
-        display: none;
-    }
-}
-
-
