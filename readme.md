@@ -4,7 +4,7 @@
 
 ### No podía faltar la modificación y eliminación de registros. Anímate a hacer un par de clics y te sorprenderás.
 
-<img src="./assets/images/Pantalla_Principal_CRUD.png" alt="Vista Principal CRUD">
+<img src="./assets/images/Pantalla_principal_CRUD.png" alt="Vista Principal CRUD">
 
 # ¿Que tal una demo?
 
