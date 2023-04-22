@@ -122,6 +122,7 @@ function insertRecord(registro){
     <h2 id="crdLastName${registro.regId}">${registro.lastname}</h2>
     <h2 id="crdProStatus${registro.regId}">${registro.projectStatus}</h2>
     <h2 id="crdAssDate${registro.regId}">${registro.assignDate}</h2>
+    <h2 class ="desc" id="crdDesc${registro.regId}">${registro.desc}</h2>
     </div>
     <div class="cards-btn">
         <a id="vrd${registro.regId})" onclick="viewRecordDetails(${registro.regId})" class="opt-btn detalles" href="#">Detalles</a>
@@ -187,14 +188,15 @@ function editRecord(value){
     document.getElementById('desc').value = registros[indice].desc
     const modificando =document.getElementById(value)
     modificando.style.backgroundColor = "gray"
-    // setTimeout(alertEditRecord(), 1000000)
+    setTimeout(alertEditRecord(value), 1500)
 }
 
-// function alertEditRecord(value){
-//     console.log(value)
-//     const modificando =document.getElementById(value)
-//     modificando.style.backgroundColor = "#252525"
-// }
+function alertEditRecord(value){
+    console.log(value)
+    const modificando =document.getElementById(value)
+    modificando.style.transition = "0.3s"
+    modificando.style.backgroundColor = "#252525"
+}
 
 function saveRecordupdate(value){
     const registro = {

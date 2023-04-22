@@ -16,15 +16,17 @@ body{
     border-radius: 20px 20px 0px 0px;
 }
 
+.container .nav .nav-menu{
+    display: none;
+}
+
 .container .footer{
     background-color: rgba(16, 15, 15, 0.702);
-    height: 60px;
-    display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    /* text-align: center; */
-    /* justify-items: center; */
-    gap: 20px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    gap: 50px;
     border-radius: 0px 0px 20px 20px;
 }
 
@@ -33,11 +35,26 @@ body{
     color: white;
 }
 
+.container .footer .footer-list{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+}
+
+.container .footer .footer-list .footer-titulo{
+    text-decoration: underline;
+}
+
+.container .footer img{
+    justify-self: center;    
+    width: 100px;
+}
+
 .container .header a{
     color: rgb(226, 226, 226);
     border-color: orange;
     border: solid 1px;
-    padding: 5px;
+    padding: 5px; 
     border-radius: 50px;
     width: 110px;
     text-align: center;
@@ -84,12 +101,6 @@ img{
     grid-template-rows: repeat(3,5% 5% auto);
 }
 
-.container .menuDerecha .cardSection{
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 80vh;
-}
-
 .menuDerecha .encabezado{
     display:flex;
     font-size: 15px;
@@ -108,14 +119,19 @@ img{
 
 .cardTitulo{
     display:grid;
-    grid-template-columns: 50px 90px 90px 90px 80px 120px 50%;
-    
+    grid-template-columns: 50px 90px 90px 90px 80px 120px 30%;
     gap: 1%;
     align-items: center;
     text-align: center;
     font-size: 11px;
     height: 50px;
     padding: 0px 30px;
+}
+
+.container .menuDerecha .cardSection{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 80vh;
 }
 
 .container .menuDerecha .cardSection .cards-container .cards {
@@ -136,11 +152,30 @@ img{
     grid-template-columns: 100px 100px 100px 100px 100px;
 }
 
+.container .menuDerecha .cardSection .cards-container .cards .cards-txt .desc{
+    display: none;
+}
+
 .container .menuDerecha .cardSection .cards-container .cards .cards-btn{
     display: grid;
     grid-template-columns: 100px 100px 100px;
     justify-content: center;
     padding-left: 5%;
+}
+
+.container .menuDerecha .cardSection .cards-container .cards .cards-txt, .cards-btn .modificar:hover{
+    color: rgb(228, 228, 73);
+    transition: 0.5s;
+}
+
+.container .menuDerecha .cardSection .cards-container .cards .cards-txt, .cards-btn .eliminar:hover{
+    color: red;
+    transition: 0.5s;
+}
+
+.container .menuDerecha .cardSection .cards-container .cards .cards-txt, .cards-btn .detalles:hover{
+    color: greenyellow;
+    transition: 0.5s;
 }
 
 .container .menuDerecha .cardSection .cards-container .cards .cards-txt, .cards-btn h2{
@@ -241,7 +276,7 @@ img{
         display: grid;
         grid-template-columns: auto auto auto;
         gap: 1%;
-        height: 100vh
+        /* height: 80vh */
     }
 
     .container .menuDerecha .cardSection .cards-container .cards{
@@ -249,7 +284,7 @@ img{
         grid-template-rows: repeat(3,auto);
         justify-content: center;
         align-self: center;
-        min-height: 300px;
+        min-height: 320px;
         min-width: 200px;
         border: solid 0.5px;
         border-color: aqua;
@@ -270,6 +305,10 @@ img{
     .container .menuDerecha .cardSection .cards-container .cards .cards-txt{
         display: flex;
         flex-direction: column;
+    }
+
+    .container .menuDerecha .cardSection .cards-container .cards .cards-txt .desc{
+        display: flex;
     }
 
     .container .menuDerecha .cardSection .cards-container .cards .cards-txt h2{
@@ -307,17 +346,13 @@ img{
         display: grid;
         grid-column: 1 / span 3;
     }
-    .container .menuDerecha .cardSection .cards-container{
-        align-items: center;
-        display: grid;
-        grid-template-rows: 100%;
-    }
+
     .container .menuDerecha .cardSection .cards-container .cards{
         grid-template-columns: auto;
         grid-template-rows: repeat(3,auto);
         justify-content: center;
         align-self: center;
-        min-height: 300px;
+        min-height: 320px;
         min-width: 200px;
         border: solid 0.5px;
         border-color: aqua;
@@ -364,17 +399,13 @@ img{
         display: grid;
         grid-column: 1 / span 3;
     }
-    .container .menuDerecha .cardSection .cards-container{
-        display: grid;
-        grid-template-rows: auto;
 
-    }
     .container .menuDerecha .cardSection .cards-container .cards{
         grid-template-columns: auto;
         /* grid-template-rows: repeat(3,auto); */
         justify-content: center;
         align-self: center;
-        min-height: 300px;
+        min-height: 320px;
         min-width: 200px;
         border: solid 0.5px;
         border-color: aqua;
@@ -426,18 +457,13 @@ img{
         grid-template-columns: auto auto;
         gap: 1%;
     }
-    .container .menuDerecha .cardSection .cards-container{
-        align-items: center;
-        display: grid;
-        grid-template-rows: 100%;
-        gap: 0%;
-    }
+
     .container .menuDerecha .cardSection .cards-container .cards{
         grid-template-columns: auto;
         grid-template-rows: repeat(3,auto);
         /* justify-content: center; */
         /* align-self: center; */
-        min-height: 300px;
+        min-height: 320px;
         min-width: 200px;
         border: solid 0.5px;
         border-color: aqua;
@@ -469,8 +495,15 @@ img{
     .cardTitulo{
         display: none;
     }
-    .dashboard, .header{
+    .dashboard {
         display: none;
+    }
+    .header .nav-responsive{
+        display: none;
+    }
+    .container .nav .nav-menu{
+        display: flex;
+        border-radius: 0%;
     }
 }
 
@@ -488,18 +521,13 @@ img{
         grid-template-columns: auto;
         gap: 1%;
     }
-    .container .menuDerecha .cardSection .cards-container{
-        align-items: center;
-        display: grid;
-        grid-template-rows: 100%;
-        gap: 0%;
-    }
+
     .container .menuDerecha .cardSection .cards-container .cards{
         grid-column: auto;
         grid-template-rows: repeat(3,auto);
         justify-content: center;
         align-self: center;
-        min-height: 300px;
+        min-height: 320px;
         min-width: 200px;
         border: solid 0.5px;
         border-color: aqua;
@@ -526,9 +554,6 @@ img{
     }
     /* Acá van todas aquellas configuraciones que desaparecen con el responsive  */
     .cardTitulo{
-        display: none;
-    }
-    .dashboard, .header{
         display: none;
     }
 }
