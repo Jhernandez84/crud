@@ -28,6 +28,21 @@
 
 # Nada mejor que un resumen!
 
-### Información simple y precisa, en este pequeño dashboard podrás revisar 3 categorías de proyectos distntos:
+### Información simple y precisa, en este pequeño dashboard podrás revisar el estado de los distintos proyectos que has ingresado:
 
 <img src="./assets/images/Dashboard_proyectos.png" alt="Vista Resumen" width="500">
+
+# Responsive styles!
+
+<p>Obvio, no siempre ocupamos el PC de escritorio, por eso este diseño es full responsive y mostrará distintos layouts dependiendo de la pantalla en que estes utilizando la app.</p>
+
+Por supuesto que pantallas grandes verán todas las funcionalidades y pantallas más pequeñas verán tarjetas. a ti, ¿Cuál te gusta más?
+
+#### Vista para pantallas <=1300px
+<img src="./assets/images/Pantalla_principal_CRUD_responsive_1.png" alt="Vista Escritorio">
+<br>
+#### Vista para pantallas de Ipad/Tablets
+<img src="./assets/images/Pantalla_principal_CRUD_responsive_2.png" alt="Vista Tablets/Ipads">
+
+#### Vista para pantallas de Smartphones
+<img src="./assets/images/Pantalla_principal_CRUD_responsive_phone.png" alt="Vista Smartphones" width="300px">
