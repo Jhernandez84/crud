@@ -155,7 +155,7 @@ function viewRecordDetails(value){
     //acá estoy agregando el detalle de la actividad
     detalleRegistro.innerHTML =`
     <h2>Tarea asignada:<h2>
-    <h2>${registros[indice].desc}<h2> 
+    <h2 id= "crdDetailFull${value}">${registros[indice].desc}<h2> 
     <a onclick="hideRecordDetails(${value})" class="opt-btn cerrar" href="#">Ocultar</a>
     `
     detalleRegistro.className='card-detail'
@@ -217,6 +217,10 @@ function saveRecordupdate(value){
     document.getElementById('crdLastName'+regId).innerText = registros[editandoIndice].lastname
     document.getElementById('crdProStatus'+regId).innerText = registros[editandoIndice].projectStatus
     document.getElementById('crdAssDate'+regId).innerText = registros[editandoIndice].assignDate
+    document.getElementById('crdDesc'+regId).innerText = registros[editandoIndice].desc
+    try {
+        document.getElementById('crdDetailFull'+regId).innerText = registros[editandoIndice].desc;
+    } catch(error) {console.error()}
     updProjectStatus()
     limpiarFormulario()
     saveDataLS()
